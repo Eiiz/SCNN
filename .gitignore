@@ -1,0 +1,94 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Model checkpoints and training data
+*.pth
+*.pt
+*.ckpt
+*.h5
+*.hdf5
+training_data.json
+colors_training_data.json
+scnn_test_results.csv
+
+# Generated figures (keep source figures if needed)
+figure*.png
+accuracy*.png
+spike_distribution*.png
+colors_scnn*.png
+all_commands*.png
+
+# Dataset (will be downloaded automatically)
+data/
+data_colors/
+*.tar.gz
+*.zip
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Control folder (not part of main paper)
+Control/
+
+# Other
+*.md.bak
+professor_feedback_response.md
+traningreport.tex
+Original-Code.ipynb
+improve_detection.py
+monitor_training.py
