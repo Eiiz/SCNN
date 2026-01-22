@@ -220,10 +220,11 @@ The training script will detect the manually downloaded dataset and use it autom
 - ReLU activations
 
 ### SNN (Spiking Neural Network)
-- 3 fully connected layers with Leaky Integrate-and-Fire (LIF) neurons
+- 3 fully connected layers (2048→512, 512→256, 256→10) with Leaky Integrate-and-Fire (LIF) neurons
 - Rate coding for spike generation
 - 25 time steps per inference
 - β=0.95 decay rate, θ=1.0 threshold
+- Dropout regularization (0.3) between layers
 
 ### SCNN (Spiking Convolutional Neural Network)
 - 3 convolutional layers with LIF neurons
@@ -266,21 +267,6 @@ Main training script that:
 - Uses real experimental data (not synthetic)
 - **This is the only script needed to generate paper figures**
 
-### `monitor_training.py` (Optional)
-**Note**: This script is **NOT required** to run `main.py`. It is an optional monitoring utility.
-
-Monitoring utility that:
-- **Independent script**: Does not need to be running for `main.py` to work
-- Watches for `training_data.json` updates (created by `main.py`)
-- Generates figures automatically as training progresses
-- Can be run in a separate terminal during or after training
-- Useful for long training sessions to track progress in real-time
-
-### `train_colors_scnn.py`
-Alternative training script for a custom Vietnamese colors dataset:
-- 4 classes: `do`, `dondep`, `tatca`, `xanh`
-- Uses same SCNN architecture
-- Not used in the main paper
 
 ## 🔬 Experimental Setup
 
@@ -295,36 +281,6 @@ Alternative training script for a custom Vietnamese colors dataset:
   - Sample rate: 16 kHz
   - Mel spectrogram: 64 bins, 1024-point FFT
   - Time steps: 25 (for spiking models)
-
-## 📄 Paper
-
-The complete paper is available in `paper.tex`. To compile:
-
-```bash
-pdflatex paper.tex
-bibtex paper
-pdflatex paper.tex
-pdflatex paper.tex
-```
-
-## 🤝 Citation
-
-If you use this code in your research, please cite:
-
-```bibtex
-@article{scnn2024,
-  title={Computational Efficiency and Theoretical Energy Analysis of Keyword Spotting: A Comparative Study of Convolutional and Spiking Neural Networks},
-  author={Nguyen, Khang},
-  journal={IEEE Conference},
-  year={2024}
-}
-```
-
-## 📧 Contact
-
-- **Author**: Khang Nguyen
-- **Email**: khangvogia070302@gmail.com
-- **Institution**: Ho Chi Minh City International University
 
 ## 📜 License
 
