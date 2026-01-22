@@ -24,14 +24,21 @@ The research evaluates these models across multiple dimensions including classif
 ```
 SCNN/
 ├── main.py                              # Main training script for all 3 models
-│   (or corrected_code_with_data_saving.py in older versions)
-├── generate_real_figures.py             # Script to generate paper figures
-├── figure_plot.py                       # Alternative figure generation script
-├── monitor_training.py                  # Monitor training progress
+├── figure_plot.py                      # Generate all paper figures
+├── monitor_training.py                  # Optional: Monitor training progress
 ├── requirements.txt                     # Python dependencies
+├── paper.tex                            # LaTeX source for the paper
+├── references.bib                       # Bibliography file
 ├── README.md                            # This file
 └── .gitignore                           # Git ignore rules
 ```
+
+**Core Scripts (Required):**
+- `main.py` - Training script
+- `figure_plot.py` - Figure generation script
+
+**Optional Scripts:**
+- `monitor_training.py` - Real-time training monitoring (not required)
 
 ## 🚀 Getting Started
 
@@ -118,19 +125,34 @@ This script will:
 
 **Note**: The script uses official Google Speech Commands dataset splits for fair comparison with published results.
 
+**Quick Start Summary:**
+```bash
+# Step 1: Train all models (takes several hours)
+python main.py
+
+# Step 2: Generate paper figures
+python figure_plot.py
+
+# Done! You now have all figures for the paper.
+```
+
 #### 2. Generating Paper Figures
 
 After training is complete, generate all figures for the paper:
 
 ```bash
-python generate_real_figures.py
+python figure_plot.py
 ```
 
-This will create:
+This will create all 4 figures used in the paper:
 - `figure1_training_curves.png` - Training loss and validation accuracy curves
 - `figure2_confusion_matrix.png` - Confusion matrix for SCNN model
 - `figure3_inference_pipeline.png` - End-to-end inference pipeline visualization
 - `figure4_performance_comparison.png` - Comprehensive performance comparison
+
+**Note**: This script requires:
+- `training_data.json` (created by `main.py`)
+- Model checkpoint files: `best_cnn_model.pth`, `best_snn_model.pth`, `best_scnn_model.pth`
 
 #### 3. Monitoring Training (Optional)
 
@@ -238,12 +260,17 @@ Main training script that:
 - Saves best model checkpoints
 - **Source**: Original implementation for this paper
 
-### `generate_real_figures.py`
-Figure generation script that:
-- Loads training data from `training_data.json`
-- Loads trained models from checkpoint files
-- Generates all 4 figures used in the paper
+### `figure_plot.py`
+**Main figure generation script** that:
+- Loads training data from `training_data.json` (created by `main.py`)
+- Loads trained models from checkpoint files (`best_*_model.pth`)
+- Generates all 4 figures used in the paper:
+  - Figure 1: Training curves
+  - Figure 2: Confusion matrix
+  - Figure 3: Inference pipeline
+  - Figure 4: Performance comparison
 - Uses real experimental data (not synthetic)
+- **This is the only script needed to generate paper figures**
 
 ### `monitor_training.py` (Optional)
 **Note**: This script is **NOT required** to run `main.py`. It is an optional monitoring utility.
