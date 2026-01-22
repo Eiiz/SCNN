@@ -25,10 +25,7 @@ The research evaluates these models across multiple dimensions including classif
 SCNN/
 ├── main.py                              # Main training script for all 3 models
 ├── figure_plot.py                      # Generate all paper figures
-├── monitor_training.py                  # Optional: Monitor training progress
 ├── requirements.txt                     # Python dependencies
-├── paper.tex                            # LaTeX source for the paper
-├── references.bib                       # Bibliography file
 ├── README.md                            # This file
 └── .gitignore                           # Git ignore rules
 ```
