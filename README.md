@@ -118,11 +118,6 @@ This script will:
   - `best_snn_model.pth` (~2-5 MB)
   - `best_scnn_model.pth` (~10-15 MB)
 
-**Training Time Estimates:**
-- **CNN**: ~2-4 hours (on GPU) or ~8-12 hours (on CPU)
-- **SNN**: ~3-5 hours (on GPU) or ~10-15 hours (on CPU)
-- **SCNN**: ~4-6 hours (on GPU) or ~12-18 hours (on CPU)
-- **Total**: ~9-15 hours (on GPU) or ~30-45 hours (on CPU)
 
 **Note**: The script uses official Google Speech Commands dataset splits for fair comparison with published results.
 
