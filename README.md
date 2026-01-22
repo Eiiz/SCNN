@@ -34,9 +34,6 @@ SCNN/
 - `main.py` - Training script
 - `figure_plot.py` - Figure generation script
 
-**Optional Scripts:**
-- `monitor_training.py` - Real-time training monitoring (not required)
-
 ## 🚀 Getting Started
 
 ### Prerequisites
