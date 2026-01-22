@@ -28,9 +28,6 @@ SCNN/
 ├── generate_real_figures.py             # Script to generate paper figures
 ├── figure_plot.py                       # Alternative figure generation script
 ├── monitor_training.py                  # Monitor training progress
-├── train_colors_scnn.py                 # Training script for custom colors dataset
-├── paper.tex                            # LaTeX source for the paper
-├── references.bib                       # Bibliography file
 ├── requirements.txt                     # Python dependencies
 ├── README.md                            # This file
 └── .gitignore                           # Git ignore rules
@@ -137,13 +134,23 @@ This will create:
 
 #### 3. Monitoring Training (Optional)
 
-In a separate terminal, you can monitor training progress:
+**Note**: `monitor_training.py` is **NOT required** to run `main.py`. It is an optional utility script.
+
+If you want to monitor training progress in real-time, you can run it in a **separate terminal**:
 
 ```bash
+# Terminal 1: Run training (required)
+python main.py
+
+# Terminal 2: Run monitor (optional, can be started anytime)
 python monitor_training.py
 ```
 
-This script watches for `training_data.json` and generates figures as training progresses.
+This script:
+- Watches for `training_data.json` updates (created by `main.py`)
+- Generates figures automatically as training progresses
+- Useful for long training sessions to track progress
+- Can be started before, during, or after training
 
 ## 📊 Dataset
 
@@ -238,11 +245,15 @@ Figure generation script that:
 - Generates all 4 figures used in the paper
 - Uses real experimental data (not synthetic)
 
-### `monitor_training.py`
+### `monitor_training.py` (Optional)
+**Note**: This script is **NOT required** to run `main.py`. It is an optional monitoring utility.
+
 Monitoring utility that:
-- Watches for `training_data.json` updates
+- **Independent script**: Does not need to be running for `main.py` to work
+- Watches for `training_data.json` updates (created by `main.py`)
 - Generates figures automatically as training progresses
-- Useful for long training sessions
+- Can be run in a separate terminal during or after training
+- Useful for long training sessions to track progress in real-time
 
 ### `train_colors_scnn.py`
 Alternative training script for a custom Vietnamese colors dataset:
